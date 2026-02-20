@@ -1,0 +1,51 @@
+services:
+  ingestion_python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ingestion_python
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python ingestion_script_fhv.py
+    networks:
+      - dbt-network
+
+  dbt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dbt
+    volumes:
+      - .:/app
+    working_dir: /app
+    depends_on:
+      ingestion_python:
+        condition: service_completed_successfully
+    command: sh -c "dbt deps --profiles-dir /app/profiles && dbt debug --profiles-dir /app/profiles && dbt build --target prod --profiles-dir /app/profiles"
+    networks:
+      - dbt-network
+
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jupyter
+    volumes:
+      - .:/app
+    working_dir: /app
+    depends_on:
+      ingestion_python:
+        condition: service_completed_successfully
+      dbt:
+        condition: service_completed_successfully
+    command: >
+      sh -c "jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --NotebookApp.token='' --NotebookApp.password='' --allow-root"
+    ports:
+      - "8888:8888"
+    networks:
+      - dbt-network
+
+networks:
+  dbt-network:
+    driver: bridge
