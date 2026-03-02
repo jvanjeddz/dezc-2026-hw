@@ -1,7 +1,0 @@
-
-Pipeline: nyc-taxi (.)
-  ingestion.trips (assets/ingestion/trips.py)
-    └── A task with materialization must have a connection defined (assets-python-validation)
-
-
-✘ Checked 1 pipeline and found 1 issue, please check above.
