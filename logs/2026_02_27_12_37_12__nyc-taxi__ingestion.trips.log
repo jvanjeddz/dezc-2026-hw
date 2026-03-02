@@ -1,0 +1,78 @@
+
+Pipeline: nyc-taxi (../../..)
+  No issues found
+
+✓ Successfully validated 1 assets across 1 pipeline, all good.
+
+Interval: 2022-01-01T00:00:00Z - 2022-02-01T00:00:00Z
+
+Starting the pipeline execution...
+
+[12:37:12] Running:  ingestion.trips
+[12:37:12] >> Installed 1 package in 14ms
+[12:37:12] >> warning: `--no-sync` is a no-op for Python scripts with inline metadata, which always run in isolation
+[12:37:13] >> Fetching https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2022-01.parquet
+[12:37:22] >> Traceback (most recent call last):
+[12:37:22] >>   File "/tmp/bruin-arrow-2900017860.py", line 19, in <module>
+[12:37:22] >>     df = module.materialize()
+[12:37:22] >>          ^^^^^^^^^^^^^^^^^^^^
+[12:37:22] >>   File "/home/jh/dezc-2025-hw/data-platforms/zoomcamp/pipeline/assets/ingestion/trips.py", line 50, in materialize
+[12:37:22] >>     response = requests.get(url, timeout=120)
+[12:37:22] >>                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[12:37:22] >>   File "/home/jh/.cache/uv/archive-v0/6v8LdCfcRrGFSDsiO9EzD/lib/python3.11/site-packages/requests/api.py", line 73, in get
+[12:37:22] >>     return request("get", url, params=params, **kwargs)
+[12:37:22] >>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[12:37:22] >>   File "/home/jh/.cache/uv/archive-v0/6v8LdCfcRrGFSDsiO9EzD/lib/python3.11/site-packages/requests/api.py", line 59, in request
+[12:37:22] >>     return session.request(method=method, url=url, **kwargs)
+[12:37:22] >>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[12:37:22] >>   File "/home/jh/.cache/uv/archive-v0/6v8LdCfcRrGFSDsiO9EzD/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+[12:37:22] >>     resp = self.send(prep, **send_kwargs)
+[12:37:22] >>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[12:37:22] >>   File "/home/jh/.cache/uv/archive-v0/6v8LdCfcRrGFSDsiO9EzD/lib/python3.11/site-packages/requests/sessions.py", line 746, in send
+[12:37:22] >>     r.content
+[12:37:22] >>   File "/home/jh/.cache/uv/archive-v0/6v8LdCfcRrGFSDsiO9EzD/lib/python3.11/site-packages/requests/models.py", line 902, in content
+[12:37:22] >>     self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+[12:37:22] >>                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[12:37:22] >>   File "/home/jh/.cache/uv/archive-v0/6v8LdCfcRrGFSDsiO9EzD/lib/python3.11/site-packages/requests/models.py", line 820, in generate
+[12:37:22] >>     yield from self.raw.stream(chunk_size, decode_content=True)
+[12:37:22] >>   File "/home/jh/.cache/uv/archive-v0/6v8LdCfcRrGFSDsiO9EzD/lib/python3.11/site-packages/urllib3/response.py", line 1257, in stream
+[12:37:22] >>     data = self.read(amt=amt, decode_content=decode_content)
+[12:37:22] >>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[12:37:22] >>   File "/home/jh/.cache/uv/archive-v0/6v8LdCfcRrGFSDsiO9EzD/lib/python3.11/site-packages/urllib3/response.py", line 1112, in read
+[12:37:22] >>     data = self._raw_read(amt)
+[12:37:22] >>            ^^^^^^^^^^^^^^^^^^^
+[12:37:22] >>   File "/home/jh/.cache/uv/archive-v0/6v8LdCfcRrGFSDsiO9EzD/lib/python3.11/site-packages/urllib3/response.py", line 1028, in _raw_read
+[12:37:22] >>     data = self._fp_read(amt, read1=read1) if not fp_closed else b""
+[12:37:22] >>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[12:37:22] >>   File "/home/jh/.cache/uv/archive-v0/6v8LdCfcRrGFSDsiO9EzD/lib/python3.11/site-packages/urllib3/response.py", line 1011, in _fp_read
+[12:37:22] >>     return self._fp.read(amt) if amt is not None else self._fp.read()
+[12:37:22] >>            ^^^^^^^^^^^^^^^^^^
+[12:37:22] >>   File "/home/jh/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/http/client.py", line 473, in read
+[12:37:22] >>     s = self.fp.read(amt)
+[12:37:22] >>         ^^^^^^^^^^^^^^^^^
+[12:37:22] >>   File "/home/jh/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/socket.py", line 718, in readinto
+[12:37:22] >>     return self._sock.recv_into(b)
+[12:37:22] >>            ^^^^^^^^^^^^^^^^^^^^^^^
+[12:37:22] >>   File "/home/jh/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/ssl.py", line 1314, in recv_into
+[12:37:22] >>     return self.read(nbytes, buffer)
+[12:37:22] >>            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[12:37:22] >>   File "/home/jh/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/ssl.py", line 1166, in read
+[12:37:22] >>     return self._sslobj.read(len, buffer)
+[12:37:22] >>            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[12:37:22] >> KeyboardInterrupt
+[12:37:22] Failed: ingestion.trips (9.328s)
+
+==================================================
+
+FAIL ingestion.trips 
+
+
+bruin run completed with failures in 9.328s
+
+ ✗ Assets executed      1 failed
+
+
+1 assets failed
+└── ingestion.trips
+    └── failed to execute Python script: failed to run asset code: exit status 130
+

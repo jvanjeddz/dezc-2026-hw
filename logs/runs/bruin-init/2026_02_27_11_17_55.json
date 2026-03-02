@@ -1,0 +1,55 @@
+{
+  "cmdline": [
+    "bruin",
+    "run",
+    "assets/r_asset.r"
+  ],
+  "parameters": {
+    "downstream": false,
+    "startDate": "2026-02-26 00:00:00.000000",
+    "endDate": "2026-02-26 23:59:59.999999",
+    "workers": 16,
+    "environment": "",
+    "force": false,
+    "pushMetadata": false,
+    "noLogFile": false,
+    "fullRefresh": false,
+    "useUV": false,
+    "tag": "",
+    "excludeTag": "",
+    "only": [],
+    "output": "",
+    "expUseWingetForUv": false,
+    "configFilePath": "",
+    "sensorMode": "",
+    "applyIntervalModifiers": false,
+    "annotations": "",
+    "useGong": false
+  },
+  "metadata": {
+    "version": "v0.11.465",
+    "os": "linux"
+  },
+  "state": [
+    {
+      "name": "my_python_asset",
+      "status": "skipped"
+    },
+    {
+      "name": "dataset.player_stats",
+      "status": "skipped"
+    },
+    {
+      "name": "dataset.players",
+      "status": "skipped"
+    },
+    {
+      "name": "my_r_asset",
+      "status": "succeeded"
+    }
+  ],
+  "version": "1.0.0",
+  "timestamp": "2026-02-27T11:17:56.09770769-06:00",
+  "run_id": "2026_02_27_11_17_55",
+  "compatibility_hash": "2859f2c0b2090ea7bfdd214b71abaa72b33de8cef0f3424496f9badcea4e53c9"
+}

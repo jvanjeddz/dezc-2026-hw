@@ -1,0 +1,51 @@
+{
+  "cmdline": [
+    "bruin",
+    "run",
+    "./pipeline/assets/ingestion/trips.py",
+    "--environment",
+    "default",
+    "--start-date",
+    "2025-02-02",
+    "--end-date",
+    "2025-02-02",
+    "--var",
+    "taxi_types=[\"yellow\"]"
+  ],
+  "parameters": {
+    "downstream": false,
+    "startDate": "2025-02-02",
+    "endDate": "2025-02-02",
+    "workers": 16,
+    "environment": "default",
+    "force": false,
+    "pushMetadata": false,
+    "noLogFile": false,
+    "fullRefresh": false,
+    "useUV": false,
+    "tag": "",
+    "excludeTag": "",
+    "only": [],
+    "output": "",
+    "expUseWingetForUv": false,
+    "configFilePath": "",
+    "sensorMode": "",
+    "applyIntervalModifiers": false,
+    "annotations": "",
+    "useGong": false
+  },
+  "metadata": {
+    "version": "v0.11.465",
+    "os": "linux"
+  },
+  "state": [
+    {
+      "name": "ingestion.trips",
+      "status": "failed"
+    }
+  ],
+  "version": "1.0.0",
+  "timestamp": "2026-02-27T12:35:28.475934582-06:00",
+  "run_id": "2026_02_27_12_35_05",
+  "compatibility_hash": "e38e434cca386e79c6a59c7629be1114c1aa8128622bb6cc044a3a44007385f0"
+}

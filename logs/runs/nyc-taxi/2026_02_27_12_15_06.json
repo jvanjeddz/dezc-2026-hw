@@ -1,0 +1,43 @@
+{
+  "cmdline": [
+    "bruin",
+    "run",
+    "assets/ingestion/trips.py"
+  ],
+  "parameters": {
+    "downstream": false,
+    "startDate": "2026-02-26 00:00:00.000000",
+    "endDate": "2026-02-26 23:59:59.999999",
+    "workers": 16,
+    "environment": "",
+    "force": false,
+    "pushMetadata": false,
+    "noLogFile": false,
+    "fullRefresh": false,
+    "useUV": false,
+    "tag": "",
+    "excludeTag": "",
+    "only": [],
+    "output": "",
+    "expUseWingetForUv": false,
+    "configFilePath": "",
+    "sensorMode": "",
+    "applyIntervalModifiers": false,
+    "annotations": "",
+    "useGong": false
+  },
+  "metadata": {
+    "version": "v0.11.465",
+    "os": "linux"
+  },
+  "state": [
+    {
+      "name": "ingestion.trips",
+      "status": "failed"
+    }
+  ],
+  "version": "1.0.0",
+  "timestamp": "2026-02-27T12:15:06.861963018-06:00",
+  "run_id": "2026_02_27_12_15_06",
+  "compatibility_hash": "e38e434cca386e79c6a59c7629be1114c1aa8128622bb6cc044a3a44007385f0"
+}
